@@ -3,7 +3,7 @@ const { legos } = require("@studydefi/money-legos");
 const { ethers, Wallet, Contract } = require("ethers");
 
 //Instructions in README
-const privateKey = '0x0' //paste Private Key of 1st ganache-cli account
+const privateKey = '0xff7b8bb35391f64f51ae513011fb479e21c979e7652aa2d015f2c50a0962e716' //paste Private Key of 1st ganache-cli account
 const provider = new ethers.providers.JsonRpcProvider(); //connect to ganache on port 8545
 const wallet = new ethers.Wallet(privateKey, provider)
 

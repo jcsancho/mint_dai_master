@@ -20,79 +20,20 @@ fi
 if [[ "${1}" == "fork" ]]
 then
     valid="true"
-    npx hardhat node
+    ganache-cli -p 8545  --fork https://mainnet.infura.io/v3/05c8e2803cc048c491b6a441d05c947a
 fi
 
-if [[ "${1}" == "testupgradable" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/test_upgradable.js --network localhost
-fi
-
-if [[ "${1}" == "testupgrade" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/test_upgrade.js --network localhost
-fi
-
-if [[ "${1}" == "upgrade" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/upgrade.js --network localhost
-fi
-
-if [[ "${1}" == "setup" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/setup.js --network localhost
-fi
-
-if [[ "${1}" == "addliquidity" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/addliquidity.js --network localhost
-fi
-
-if [[ "${1}" == "removeETH" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/removeETH.js --network localhost
-fi
-
-if [[ "${1}" == "removeDAI" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/removeDAI.js --network localhost
-fi
-
-if [[ "${1}" == "test" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/test.js --network localhost
-fi
-
-if [[ "${1}" == "deployupgradable" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/deploy_upgradable.js --network localhost
-fi
 
 if [[ "${1}" == "deploy" ]]
 then
     valid="true"
-    npx hardhat run src/backend/scripts/deploy.js --network localhost
+    truffle migrate --reset
 fi
 
-if [[ "${1}" == "deploykovan" ]]
+if [[ "${1}" == "mint" ]]
 then
     valid="true"
-    npx hardhat run src/backend/scripts/deploy.js --network kovan
-fi
-
-if [[ "${1}" == "setupkovan" ]]
-then
-    valid="true"
-    npx hardhat run src/backend/scripts/setupkovan.js --network kovan
+    truffle exec scripts/mint_dai_via_contract.js
 fi
 
 
@@ -116,17 +57,6 @@ then
     git push  
 fi
 
-if [[ "${1}" == "web" ]]
-then
-    valid="true"
-    npm run start
-fi
-
-if [[ "${1}" == "compile" ]]
-then
-    valid="true"
-    npx hardhat compile
-fi
 
 
 
@@ -147,15 +77,9 @@ then
     echo "****************************************************"
         echo "  0.fork "
         echo "  1.deploy "
-        echo "  2.setup "
-        echo "  3.addliquidity "
-        echo "  4.removeETH "
-        echo "  5.removeDAI "
-    echo "****************************************************"
-    echo " Working on Kovan network (no need to fork first):"
-    echo "****************************************************"
-        echo "  1.deploykovan "
-        echo "  2.setupkovan "
+        echo "  2.mint "
+        
+    
         
 
 fi

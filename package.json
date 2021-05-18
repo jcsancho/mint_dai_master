@@ -5,6 +5,10 @@
   "author": "dev@dappuniversity.com",
   "dependencies": {
     "@studydefi/money-legos": "2.4.2",
-    "ethers": "4.0.46"
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "dotenv": "^9.0.2",
+    "ethers": "4.0.46",
+    "truffle-hdwallet-provider-privkey": "^0.3.0"
   }
 }
